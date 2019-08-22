@@ -1,0 +1,66 @@
+import org.apache.tools.ant.taskdefs.condition.Os
+
+plugins {
+    // Apply the java plugin to add support for Java
+    id 'java'
+
+    // Apply the application plugin to add support for building a CLI application
+    id 'application'
+}
+
+description = 'World Server 3D'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+version = '0.0.0'
+
+application {
+	// Define the main class for the application
+	mainClassName = 'main.Main'
+}
+
+repositories {
+	flatDir {
+		dirs 'src/main/resources', 'src/main/resources/libs'
+	}
+	
+	// Use jcenter for resolving dependencies.
+	// You can declare any Maven/Ivy/file repository here.
+//	jcenter()
+	mavenLocal()
+	mavenCentral()
+	maven{
+		url "https://mvnrepository.com/artifact/org.lwjgl.lwjgl/lwjgl"
+	}
+}
+
+
+dependencies {
+	
+	implementation		files('src/main/resources/libs/jme2.jar')
+	implementation		fileTree(dir: "src/main/resources/images", includes: ['*'])
+	
+	// json
+	implementation		group: 'org.json', name: 'json', version:'20180813'
+	
+	//lwjgl
+	implementation		group: 'org.lwjgl.lwjgl', name: 'lwjgl', version: '2.9.3'
+	
+	// Use JUnit test framework
+	testImplementation	group: 'junit', name: 'junit', version: '4.12'
+}
+
+//jar {
+//	from configurations.runtime.collect {
+//		zipTree it		//creates a directory file tree for all dependencies listed as a <implementation> entry.
+//	}
+//	
+//	manifest {
+//		attributes (
+//			"Main-Class" : "main.Main",
+//	//		"Implementation-Title": "Gradle",
+//			"Implementation-Version" : version
+//		)
+//	}
+//}
+
