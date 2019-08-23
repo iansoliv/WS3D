@@ -38,7 +38,7 @@ public class SimulationFrame {
 	Main root;
 	public SimulationGameState gameState;
 	StandardGame game;
-	static Logger log = Logger.getLogger( SimulationFrame.class.getCanonicalName() );
+	static final Logger log = Logger.getLogger( SimulationFrame.class.getCanonicalName() );
 
 	SimulationFrame( Main m )
 	{
@@ -62,6 +62,7 @@ public class SimulationFrame {
 		MouseInput.get().setCursorVisible( true );
 		GameTaskQueueManager.getManager().update( new Callable<Void>() {
 
+			@Override
 			public Void call() throws Exception
 			{
 				gameState = new SimulationGameState( "simulation", root, game );	// Create our game state

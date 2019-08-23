@@ -29,7 +29,7 @@ import java.util.Random;
  */
 public class Constants {
    
-   public static final String IMAGES_PATH="src/main/resources/images";
+   public static final String IMAGES_PATH="images";
    
     public static final int PORT = 4011;
     public static final String colorRED = "Red";

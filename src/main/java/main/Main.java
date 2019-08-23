@@ -62,7 +62,7 @@ public class Main {
 		log = Logger.getLogger( Main.class.getCanonicalName() );
 		Logger.getLogger( "com.jme" ).setLevel( Level.OFF );
 		Logger.getLogger( "com.jmex" ).setLevel( Level.OFF );
-		Logger.getLogger( "worldserver3d" ).setLevel( Level.WARNING );
+		Logger.getLogger( "main" ).setLevel( Level.WARNING );
 		Logger.getLogger( "util" ).setLevel( Level.WARNING );
 		Logger.getLogger( "model" ).setLevel( Level.WARNING );
 		Logger.getLogger( "motorcontrol" ).setLevel( Level.WARNING );
